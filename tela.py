@@ -132,6 +132,25 @@ def apresentar_dados():
              font=('Arial 11 bold'), bg=cor_de_fundo, fg=cor_detaque)
         app_titulo.place(x=130, y=5)
 
+        app_desc = Label(frames["F{}".format(i)], text=titles[i], compound=LEFT, justify='left', wraplength=350,
+             font=('Arial 9'), bg=cor_de_fundo, fg=cor_texto)
+        app_desc.place(x=130, y=45)
+
+        b_titulo = Button(frames["F{}".format(i)], text="Copiar Titulo", overrelief=RIDGE, bg=cor_de_fundo, fg=cor_texto,
+                          font=('Ivy 10'), anchor="center", relief=FLAT)
+        b_titulo.place(x=500, y=5)
+
+        b_desc = Button(frames["F{}".format(i)], text="Copiar Texto", overrelief=RIDGE, bg=cor_de_fundo, fg=cor_texto,
+                          font=('Ivy 10'), anchor="center", relief=FLAT)
+        b_desc.place(x=500, y=40)
+
+        b_link = Button(frames["F{}".format(i)], text="Copiar Link", overrelief=RIDGE, bg=cor_de_fundo, fg=cor_texto,
+                          font=('Ivy 10'), anchor="center", relief=FLAT)
+        b_link.place(x=500, y=75)
+
+        # incrementando o valor da linha
+        num_row += 1
+
 
 
 
@@ -143,7 +162,7 @@ app_procura.place(x=10, y=10)
 app_procura_e = Entry(frameMeio, bg=cor_de_fundo, font=('Ivy 14'))
 app_procura_e.place(x=165, y=10)
 app_procura_b = Button(frameMeio,command=apresentar_dados, text="Pesquisar", width=10, bg=cor_de_fundo)
-app_procura_b.place(x=330, y=10)
+app_procura_b.place(x=380, y=10)
 
 
 janela.mainloop()
