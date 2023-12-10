@@ -139,20 +139,39 @@ def apresentar_dados():
         b_titulo = Button(frames["F{}".format(i)], text="Copiar Titulo", overrelief=RIDGE, bg=cor_de_fundo, fg=cor_texto,
                           font=('Ivy 10'), anchor="center", relief=FLAT)
         b_titulo.place(x=500, y=5)
+        b_titulo.bind("<Button-1>", lambda e, title=titles[i]: callback_title(title))
 
         b_desc = Button(frames["F{}".format(i)], text="Copiar Texto", overrelief=RIDGE, bg=cor_de_fundo, fg=cor_texto,
                           font=('Ivy 10'), anchor="center", relief=FLAT)
         b_desc.place(x=500, y=40)
+        b_desc.bind("<Button-1>", lambda e, texto=descricoes[i]: callback_texto(texto))
 
         b_link = Button(frames["F{}".format(i)], text="Copiar Link", overrelief=RIDGE, bg=cor_de_fundo, fg=cor_texto,
                           font=('Ivy 10'), anchor="center", relief=FLAT)
         b_link.place(x=500, y=75)
+        b_link.bind("<Button-1>", lambda e, link=urls[i]: callback_link(link))
 
         # incrementando o valor da linha
         num_row += 1
 
 
+def callback_title(title):
+    janela.clipboard_clear()
+    janela.clipboard_append(title)
+    janela.update()
+    messagebox.showinfo("Texto Copiado", "Titulo copiado para a area de transferência")
 
+def callback_texto(texto):
+    janela.clipboard_clear()
+    janela.clipboard_append(texto)
+    janela.update()
+    messagebox.showinfo("Texto Copiado", "Titulo copiado para a area de transferência")
+
+def callback_link(link):
+    janela.clipboard_clear()
+    janela.clipboard_append(link)
+    janela.update()
+    messagebox.showinfo("Texto Copiado", "Titulo copiado para a area de transferência")
 
 
 # interface para procurar
